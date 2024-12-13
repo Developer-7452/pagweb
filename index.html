@@ -102,6 +102,32 @@
       width: 30px;
       height: 30px;
     }
+    /* Logo */
+.logo img {
+  width: 100px; /* Tamaño predeterminado del logo */
+  height: auto;
+}
+
+/* Cambia el tamaño del logo en pantallas pequeñas */
+@media (max-width: 768px) {
+  .logo img {
+    width: 120px;
+  }
+}
+
+/* Cambia el tamaño del logo en pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .logo img {
+    width: 160px;
+  }
+}
+
+/* Cambia el tamaño del logo en pantallas grandes */
+@media (min-width: 1024px) {
+  .logo img {
+    width: 190px;
+  }
+}
   </style>
 </head>
 <body>
@@ -113,9 +139,9 @@
 
   <!-- Contenido principal -->
   <div class="content">
-    <div class="logo">
-      <img src="your-logo.png" alt="Logo">
-    </div>
+   <div class="logo">
+  <img src="your-logo.png" alt="Logo">
+</div>
     <!-- Contenedor del título con GIFs -->
     <div class="title-container">
       <img src="your-gif-left.gif" alt="GIF animado izquierdo" class="title-gif">
