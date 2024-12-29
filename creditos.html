@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Créditos - Developer7452</title>
+  <style>
+    /* Reset General */
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #1e1e1e;
+      color: #ffffff;
+    }
+
+    /* Barra de Navegación */
+    .navbar {
+      background: #2c2c2c; /* Gris oscuro */
+      color: white;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      transition: background 0.3s;
+    }
+
+    .navbar a:hover {
+      background: #444;
+      border-radius: 5px;
+    }
+
+    /* Contenido principal */
+    .content {
+      margin-top: 70px; /* Espacio para la barra de navegación */
+      padding: 20px;
+      text-align: center;
+    }
+
+    .content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    /* Tarjetas de créditos */
+    .credits-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .credit-card {
+      background: #2c2c2c;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .credit-card:hover {
+      transform: scale(1.05);
+    }
+
+    .credit-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .credit-card .info {
+      padding: 15px;
+    }
+
+    .credit-card .info h3 {
+      margin: 10px 0;
+      font-size: 1.2rem;
+    }
+
+    .credit-card .info p {
+      font-size: 0.9rem;
+      color: #cccccc;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .credits-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Barra de Navegación -->
+  <div class="navbar">
+    <a href="index.html">Inicio</a>
+    <a href="addon_maker.html">Addon_Maker</a>
+    <a href="addons.html">Addons</a>
+    <a href="bugs.html">Bugs</a>
+    <a href="sugerencias.html">Sugerencias</a>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="content">
+    <h1>Créditos</h1>
+    <p>Estas son las personas que me han ayudado en el desarrollo de mis proyectos:</p>
+    
+    <div class="credits-container">
+      <!-- Tarjeta 1 -->
+      <div class="credit-card">
+        <img src="manolo.png" alt="Persona 1">
+        <div class="info">
+          <h3>Manolo394</h3>
+          <p>Me ha estado ayudando con modelos de items o mobs y me ha ayudado en cosas que le pido ayuda</p>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="credit-card">
+        <img src="mathi.png" alt="Persona 2">
+        <div class="info">
+          <h3>ElMamthim</h3>
+          <p>El me dio mi primera oportunidad en ayudar a desarrollar una serie para el, que nunca salio la serie</p>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="credit-card">
+        <img src="angeldfire2.png" alt="angeldfire2">
+        <div class="info">
+          <h3>angeldfire2</h3>
+          <p>El me ayudo a aprender cosas en el desarrollamiento de UI's y mas cosas</p>
+        </div>
+      </div>
+
+      <!-- Tarjeta 4 -->
+      <div class="credit-card">
+        <img src="persona4.jpg" alt="Persona 4">
+        <div class="info">
+          <h3>Nombre de Persona 4</h3>
+          <p>Responsable de las pruebas beta y feedback de errores.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
