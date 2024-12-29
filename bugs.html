@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reporte de Bugs - Developer7452</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #1e1e1e;
+      color: #ffffff;
+    }
+
+    /* Barra de Navegación */
+    .navbar {
+      background: #2c2c2c;
+      color: white;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      transition: background 0.3s;
+    }
+
+    .navbar a:hover {
+      background: #444;
+      border-radius: 5px;
+    }
+
+    /* Contenido principal */
+    .content {
+      margin-top: 70px; /* Espacio para la barra de navegación */
+      padding: 20px;
+      text-align: center;
+    }
+
+    .content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    /* Formulario */
+    .form-container {
+      background: #2c2c2c;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      width: 80%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    label {
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+
+    select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      background-color: #444;
+      color: white;
+      border: none;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 150px;
+    }
+
+    button {
+      background-color: #0066cc;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #004d99;
+    }
+
+    /* Estilo para los campos condicionales */
+    .conditional-field {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Barra de Navegación -->
+  <div class="navbar">
+    <a href="index.html">Inicio</a>
+    <a href="addon_maker.html">Addon_Maker</a>
+    <a href="addons.html">Addons</a>
+    <a href="creditos.html">Créditos</a>
+  </div>    
+
+  <!-- Contenido principal -->
+  <div class="content">
+    <h1>Reporte de Bugs</h1>
+    <p>Por favor, selecciona el tipo de error que estás experimentando:</p>
+
+    <div class="form-container">
+      <form id="bug-form">
+        <!-- Dropdown para tipo de error -->
+        <label for="error-type">Tipo de error:</label>
+        <select id="error-type" name="error-type" onchange="toggleFields()">
+          <option value="">Selecciona un tipo de error</option>
+          <option value="descarga">Error de descarga</option>
+          <option value="pagina">Error en página</option>
+          <option value="addon">Error en addons</option>
+        </select>
+
+        <!-- Campos para error de descarga -->
+        <div id="descarga-fields" class="conditional-field">
+          <label for="addon-type">Tipos de addons:</label>
+          <select id="addon-type" name="addon-type">
+            <option value="addon1">Addon 1</option>
+            <option value="addon2">Addon 2</option>
+            <option value="addon3">Addon 3</option>
+            <!-- Agrega más opciones de addons si es necesario -->
+          </select>
+
+          <label for="download-error">Descripción del error de descarga:</label>
+          <textarea id="download-error" name="download-error"></textarea>
+        </div>
+
+        <!-- Campo para error de página -->
+        <div id="pagina-fields" class="conditional-field">
+          <label for="page-error">Descripción del error de página:</label>
+          <textarea id="page-error" name="page-error"></textarea>
+        </div>
+
+        <!-- Campos para error en addons -->
+        <div id="addon-fields" class="conditional-field">
+          <label for="addon-name">Addon que da error:</label>
+          <select id="addon-name" name="addon-name">
+            <option value="addon1">Addon 1</option>
+            <option value="addon2">Addon 2</option>
+            <option value="addon3">Addon 3</option>
+            <!-- Agrega más opciones si es necesario -->
+          </select>
+
+          <label for="addon-error">Descripción del error del addon:</label>
+          <textarea id="addon-error" name="addon-error"></textarea>
+        </div>
+
+        <!-- Botón de enviar -->
+        <button type="submit">Enviar reporte</button>
+      </form>
+    </div>
+  </div>
+
+<script>
+  // Función para mostrar los campos correspondientes según la selección
+  function toggleFields() {
+    const errorType = document.getElementById('error-type').value;
+    
+    // Ocultar todos los campos condicionales primero
+    document.getElementById('descarga-fields').style.display = 'none';
+    document.getElementById('pagina-fields').style.display = 'none';
+    document.getElementById('addon-fields').style.display = 'none';
+
+    // Mostrar los campos correspondientes según el tipo de error seleccionado
+    if (errorType === 'descarga') {
+      document.getElementById('descarga-fields').style.display = 'block';
+    } else if (errorType === 'pagina') {
+      document.getElementById('pagina-fields').style.display = 'block';
+    } else if (errorType === 'addon') {
+      document.getElementById('addon-fields').style.display = 'block';
+    }
+  }
+
+  // Función para obtener la hora actual en formato legible
+  function getCurrentTime() {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    return `${hours}:${minutes}:${seconds}`;
+  }
+
+  // Enviar el formulario a Discord Webhook
+  document.getElementById('bug-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const errorType = document.getElementById('error-type').value;
+    let description = '';
+
+    if (errorType === 'descarga') {
+      const addonType = document.getElementById('addon-type').value;
+      const downloadError = document.getElementById('download-error').value;
+      description += `**Tipo de addon:** ${addonType}\n**Error de descarga:** ${downloadError}`;
+    } else if (errorType === 'pagina') {
+      const pageError = document.getElementById('page-error').value;
+      description += `**Error de página:** ${pageError}`;
+    } else if (errorType === 'addon') {
+      const addonName = document.getElementById('addon-name').value;
+      const addonError = document.getElementById('addon-error').value;
+      description += `**Addon:** ${addonName}\n**Error del addon:** ${addonError}`;
+    }
+
+    // Crear el mensaje en formato embed
+    const embedMessage = {
+      username: "Bugs",
+      avatar_url: "https://your-avatar-url.com/avatar.png", // Cambia esto con tu imagen de avatar si lo deseas
+      embeds: [
+        {
+          color: 16711680, // Color rojo
+          title: "Reporte de Bug",
+          description: `**Hora:** ${getCurrentTime()}\n**Tipo de error:** ${errorType}\n${description}`,
+          footer: {
+            text: "Developer7452 - Reporte de Bugs",
+            icon_url: "https://your-footer-icon-url.com/icon.png" // Puedes agregar un ícono en el pie de página si lo deseas
+          },
+          timestamp: new Date()
+        }
+      ]
+    };
+
+    // Webhook URL para Discord (reemplaza con tu URL)
+    const webhookUrl = 'https://discord.com/api/webhooks/1322840089335828554/T1fwvQ68N6GQzVae17ZoY9DqQTUVMKvzDATAaU5lzmr9YMSLI8htXipQWEnfbzVHgfy5';
+
+    // Enviar mensaje al webhook
+    fetch(webhookUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(embedMessage),
+    })
+    .then(response => response.json())
+    .then(data => alert('Reporte enviado con éxito'))
+    .catch(error => alert('Hubo un error al enviar el reporte'));
+  });
+</script>
+</body>
+  </html>
