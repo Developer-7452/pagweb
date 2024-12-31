@@ -16,7 +16,7 @@
 
         /* Barra de Navegación */
         .navbar {
-            background: #2c2c2c; /* Gris oscuro */
+            background: #2c2c2c;
             color: white;
             display: flex;
             justify-content: space-around;
@@ -42,13 +42,14 @@
             border-radius: 5px;
         }
 
-        /* Separador entre Navbar y Addons */
+        /* Espaciador principal */
         .navbar-separator {
-            margin-top: 60px; /* Espacio entre navbar y sección addons */
+            margin-top: 80px; /* Más espacio después del navbar */
         }
 
+        /* Sección de Addons */
         .addons-section {
-            margin: 20px auto;
+            margin: 40px auto; /* Más espacio arriba y abajo */
             padding: 20px;
             max-width: 1200px;
             background-color: #2b2b2b;
@@ -228,20 +229,5 @@
             </div>
         </div>
     </section>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const carousels = document.querySelectorAll('.carousel');
-            carousels.forEach(carousel => {
-                let currentIndex = 0;
-                const images = carousel.querySelectorAll('img');
-                setInterval(() => {
-                    images[currentIndex].classList.remove('active');
-                    currentIndex = (currentIndex + 1) % images.length;
-                    images[currentIndex].classList.add('active');
-                }, 3000);
-            });
-        });
-    </script>
 </body>
 </html>
